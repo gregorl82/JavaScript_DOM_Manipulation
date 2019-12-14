@@ -25,7 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
     playerContainer.appendChild(playerName)
     playerContainer.appendChild(playerCountry)
     playerContainer.appendChild(playerTitles)
+
+    formElement.reset()
   }
   formElement.addEventListener('submit', handleFormSubmit)
+
+  const deleteButton = document.querySelector('#delete-button')
+
+  const handleDeleteAll = function(event){
+
+    const playerContainer = document.querySelector('#player-info')
+
+    playerContainer.textContent = " "
+
+  }
+
+  deleteButton.addEventListener('click', handleDeleteAll)
 
 })
