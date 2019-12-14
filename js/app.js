@@ -1,45 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('JavaScript has loaded');
 
-  const formElement = document.querySelector('#new-player-form')
+  const formElement = document.querySelector('#new-player-form');
+  formElement.addEventListener('submit', handleFormSubmit);
 
-  const handleFormSubmit = function(event){
-
-    event.preventDefault()
-
-    const firstName = event.target.firstname.value
-    const lastName = event.target.lastname.value
-    const country = event.target.country.value
-    const titles = event.target.titles.value
-
-    const playerName = document.createElement('h3')
-    const playerCountry = document.createElement('p')
-    const playerTitles = document.createElement('p')
-
-    playerName.textContent = `${firstName} ${lastName}`
-    playerCountry.textContent = `${country}`
-    playerTitles.textContent = `Titles won in 2019: ${titles}`
-
-    const playerContainer = document.querySelector('#player-info')
-
-    playerContainer.appendChild(playerName)
-    playerContainer.appendChild(playerCountry)
-    playerContainer.appendChild(playerTitles)
-
-    formElement.reset()
-  }
-  formElement.addEventListener('submit', handleFormSubmit)
-
-  const deleteButton = document.querySelector('#delete-button')
-
-  const handleDeleteAll = function(event){
-
-    const playerContainer = document.querySelector('#player-info')
-
-    playerContainer.textContent = " "
-
-  }
-
-  deleteButton.addEventListener('click', handleDeleteAll)
-
+  const deleteAllButton = document.querySelector('#delete-button');
+  deleteAllButton.addEventListener('click', handleDeleteAll);
 })
+
+const handleFormSubmit = function(event){
+  event.preventDefault();
+
+  const newPlayerItem = createNewPlayerItem(event.target);
+  const playerContainer = document.querySelector('#player-info');
+  playerContainer.appendChild(newPlayerItem);
+
+  event.target.reset();
+}
+
+const createNewPlayerItem = function(form){
+  const newPlayerItem = document.createElement('div');
+  newPlayerItem.classList.add('player-item');
+
+  const playerName = document.createElement('h3');
+  playerName.textContent = `${form.firstname.value} ${form.lastname.value}`;
+  newPlayerItem.appendChild(playerName);
+
+  const playerCountry = document.createElement('p');
+  playerCountry.textContent = form.country.value;
+  newPlayerItem.appendChild(playerCountry);
+
+  const playerTitles = document.createElement('p');
+  playerTitles.textContent = form.titles.value;
+  newPlayerItem.appendChild(playerTitles);
+
+  return newPlayerItem;
+}
+
+const handleDeleteAll = function(event){
+  const playerContainer = document.querySelector('#player-info');
+  playerContainer.innerHTML = " ";
+}
