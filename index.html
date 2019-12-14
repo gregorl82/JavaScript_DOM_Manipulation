@@ -2,9 +2,48 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Favourite Tennis Players</title>
   </head>
   <body>
+
+    <h1>Favourite Tennis Players</h1>
+
+    <p>Enter a new tennis player:</p>
+
+    <form id="new-player-form">
+
+      <div class="form-item">
+        <label for="firstname">First name:</label>
+        <input type="text" name="firstname" id="firstname"required>
+      </div>
+
+      <div class="form-item">
+        <label for="lastname">Last name:</label>
+        <input type="text" name="lastname" id="lastname"required>
+      </div>
+
+      <div class="form-item">
+        <label for="country">Country:</label>
+        <input type="text" name="country" id="country"required>
+      </div>
+
+      <div class="form-item">
+        <label for="titles">2019 titles won:</label>
+        <input type="text" name="titles" id="titles"required>
+      </div>
+
+      <input type="submit" value="Save">
+
+    </form>
+
+    <input id="delete-button" type="submit" value="Delete all">
+
+    <div id="player-info">
+
+
+    </div>
 
   </body>
 </html>
