@@ -30,8 +30,12 @@ const createNewPlayerItem = function(form){
   newPlayerItem.appendChild(playerCountry);
 
   const playerTitles = document.createElement('p');
-  playerTitles.textContent = form.titles.value;
+  playerTitles.textContent = `Titles won in 2019: ${form.titles.value}`;
   newPlayerItem.appendChild(playerTitles);
+
+  const playerRating = document.createElement('p');
+  playerRating.textContent = `Rating out of 5: ${form.rating.value}`;
+  newPlayerItem.appendChild(playerRating);
 
   return newPlayerItem;
 }
