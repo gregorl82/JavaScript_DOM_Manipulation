@@ -1,0 +1,37 @@
+body {
+  font-family: 'Karla', sans-serif;
+  text-align: center;
+  background-color: transparent;
+  height: 100%;
+  width: 100%
+}
+
+body::after {
+  content: "";
+  background: url(./players-background.jpg);
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+h1 {
+  font-family: 'Girassol', cursive;
+  font-size: 50px;
+}
+
+h3 {
+  font-family: 'Raleway Dots', cursive;
+  font-size: 30px;
+}
+
+p, form input, form label, form select, input {
+  font-size: 18px;
+}
+
+.form-item, input {
+  margin: 15px;
+}
